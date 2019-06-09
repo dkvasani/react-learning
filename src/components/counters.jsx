@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
-import Counter from './counter';
+
+import Header from './header';
+import ContainerCom from './container';
+
 
 class Counters extends Component {
     state = { 
@@ -13,10 +16,9 @@ class Counters extends Component {
      }
     render() { 
         return ( <div>
-            
-            { this.state.counters.map(counter => 
-            <Counter key={counter.id} value = {counter.value} />) }
-            
+            <Header/>
+            <ContainerCom />
+        
         </div> );
     }
 }
