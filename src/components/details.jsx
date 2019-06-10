@@ -14,12 +14,13 @@ class StockDetails extends React.Component {
     };
 
     componentDidMount() {
-
-        fetch("https://mufqtxupq3.execute-api.ap-south-1.amazonaws.com/dev/stock-details?code=" + this.props.match.params.stockCode)
+        let stockCode = this.props.match.params.stockCode;
+        let originalCode = stockCode.replace('NSE:', '');
+    
+        fetch("https://mufqtxupq3.execute-api.ap-south-1.amazonaws.com/dev/stock-details?code=" + originalCode)
             .then(res => res.json())
             .then(
                 (result) => {
-                    console.log(result);
                     this.setState({
                         isLoaded: true,
                         items: result.stockData.reverse()

@@ -19,7 +19,6 @@ class Container extends Component {
       .then(res => res.json())
       .then(
         (result) => {
-            console.log(result.stockData)
           this.setState({
             isLoaded: true,
             items: result.stockData
@@ -34,12 +33,6 @@ class Container extends Component {
       )
   }
 
-  handleCounter = product => {
-    console.log(product);
-    const currentState = product.id;
-    this.setState({count : currentState + 1});
-  }
-
   getColor(changePrice) {
     if (changePrice < 0) {
         return {color:'#FF0000'};
@@ -48,7 +41,7 @@ class Container extends Component {
     }
   }
   render() {
-    console.log("This is counter", this.props);
+   
     return (
         <React.Fragment>
             <Table striped bordered hover>
@@ -69,7 +62,7 @@ class Container extends Component {
   <tbody>
     
   { this.state.items.map(item => 
-    <tr style={this.getColor(item.change_price)}>
+    <tr style={this.getColor(item.change_price)} key = {item.stock_code}>
     <td><Link to={`/details/${item.stock_code}`} params={{ stockCode: item.stock_code }} >{ item.stock_code}</Link></td>
     <td>{ item.open_price}</td>
     <td>{ item.current_price}</td>

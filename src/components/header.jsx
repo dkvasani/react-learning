@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Button, Navbar, Nav, NavDropdown, Form, FormControl } from 'react-bootstrap';
-import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
+import {  Link } from 'react-router-dom';
 
 class Header extends Component {
 
@@ -11,7 +11,6 @@ class Header extends Component {
 
 
   render() {
-    console.log("This is counter", this.props);
     return (
       <div>
         <Navbar bg="light" expand="lg">
