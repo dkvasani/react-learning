@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Button, Table, Nav, NavDropdown, Form, FormControl } from 'react-bootstrap';
+import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
 
 class Container extends Component {
 
@@ -69,8 +70,7 @@ class Container extends Component {
     
   { this.state.items.map(item => 
     <tr style={this.getColor(item.change_price)}>
-    <td 
-    >{ item.stock_code}</td>
+    <td><Link to={`/details/${item.stock_code}`} params={{ stockCode: item.stock_code }} >{ item.stock_code}</Link></td>
     <td>{ item.open_price}</td>
     <td>{ item.current_price}</td>
     <td>{ item.high_price}</td>

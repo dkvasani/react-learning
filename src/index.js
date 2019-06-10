@@ -8,6 +8,7 @@ import ContainerCom from './components/container';
 import Header from './components/header';
 import Users from './components/users';
 import Contact from './components/contact';
+import StockDetails from './components/details';
 import 'bootstrap/dist/css/bootstrap.css';
 
 const routing = (
@@ -17,6 +18,7 @@ const routing = (
       <Header />
         <Route path="/users" component={Users} />
         <Route path="/contact" component={Contact} />
+        <Route path="/details/:stockCode" component={StockDetails} />
         <Route exact path="/" component={ContainerCom} />
       </div>
     </Router>
